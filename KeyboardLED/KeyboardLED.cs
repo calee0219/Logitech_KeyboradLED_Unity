@@ -9,10 +9,16 @@ namespace KeyboradLEDLibrary
     {
         //static void Main()
         //{
-        //    KeyboardLED led = new KeyboardLED();
-        //    led.initLED();
-        //    led.clearLED();
-        //    led.fireDown(100, 0, 0);
+            //KeyboardLED led = new KeyboardLED();
+            //led.initLED();
+            //led.clearLED();
+            //LogitechGSDK.LogiLedFlashLighting(100, 50, 0, 10000, 300);
+            //Thread.Sleep(5000);
+            //LogitechGSDK.LogiLedStopEffects();
+            //LogitechGSDK.LogiLedPulseLighting(0, 0, 100, 1000000, 100);
+            //Thread.Sleep(10000);
+        //    led.randAllKey();
+        //    Console.Read();
         //    led.endLED();
         //}
         // Sample using code
@@ -37,14 +43,31 @@ namespace KeyboradLEDLibrary
         public void initLED()
         {
             LogitechGSDK.LogiLedInit();
+            LogitechGSDK.LogiLedSaveCurrentLighting();
         }
         public void endLED()
         {
+            //LogitechGSDK.LogiLedRestoreLighting();
             LogitechGSDK.LogiLedShutdown();
         }
         public void shinAllKey(int r, int g, int b)
         {
             LogitechGSDK.LogiLedSetLighting(r, g, b);
+        }
+        public void randAllKey()
+        {
+            byte[] bitmap = new byte[LogitechGSDK.LOGI_LED_BITMAP_SIZE];
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+
+            for (int i = 0; i < LogitechGSDK.LOGI_LED_BITMAP_SIZE; i += 4)
+            {
+                bitmap[i] = (byte)rnd.Next(0, 256);
+                bitmap[i + 1] = (byte)rnd.Next(0, 256);
+                bitmap[i + 2] = (byte)rnd.Next(0, 256);
+                bitmap[i + 3] = 255;
+            }
+
+            LogitechGSDK.LogiLedSetLightingFromBitmap(bitmap);
         }
         public void shinKeyWithFunc(int i, int r, int g, int b)
         {
@@ -246,7 +269,6 @@ namespace KeyboradLEDLibrary
             LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
             LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
             Thread.Sleep(500);
-            clearLED();
             clearLED();
         }
         public void go(int gr, int gg, int gb, int or, int og, int ob)
