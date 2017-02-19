@@ -1,43 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading;
 using LedCSharp;
-using System.Windows.Forms;
+
 
 namespace KeyboradLEDLibrary
 {
     public class KeyboardLED
     {
-        //static void Main()
-        //{
-        //    initLED();
-        //    while(true)
-        //    {
-        //        int c = Console.Read();
-        //        if (c == 27) break;
-        //        shinKey(c, 100, 0, 0);
-        //    }
-        //    endLED();
-        //}
-        static void Main(string[] args)
+        static void Main()
         {
-            KeyboardLED a = new KeyboardLED();
-            Random rnd = new Random();
-            a.initLED();
-            a.clearLED();
-            Console.WriteLine("Press ESC to stop");
-            ConsoleKeyInfo keyinfo;
-            do
-            {
-                keyinfo = Console.ReadKey();
-                a.clearLED();
-                Console.WriteLine(keyinfo.Key + " was pressed");
-                Console.WriteLine(keyinfo.KeyChar + " as ASCII Char");
-                a.shinKeyWithChar(keyinfo.KeyChar, rnd.Next(0, 101), rnd.Next(0, 101), rnd.Next(0, 101));
-            }
-            while (keyinfo.Key != ConsoleKey.Escape);
-            a.endLED();
+            KeyboardLED led = new KeyboardLED();
+            led.initLED();
+            led.clearLED();
+            led.fireDown(100, 0, 0);
+            led.endLED();
         }
+        // Sample using code
+        //static void Main(string[] args)
+        //{
+        //    KeyboardLED a = new KeyboardLED();            -> New it
+        //    Random rnd = new Random();
+        //    a.initLED();                                  -> init
+        //    a.clearLED();                                 -> if you want to clear the light of keyboard
+        //    Console.WriteLine("Press ESC to stop");
+        //    ConsoleKeyInfo keyinfo;
+        //    do
+        //    {
+        //        keyinfo = Console.ReadKey();
+        //        if(keyinfo.KeyChar == '.') a.clearLED();
+        //        Console.Write(keyinfo.KeyChar);
+        //        a.shinKeyWithChar(keyinfo.KeyChar, rnd.Next(0, 101), rnd.Next(0, 101), rnd.Next(0, 101)); -> api
+        //    }
+        //    while (keyinfo.Key != ConsoleKey.Escape);
+        //    a.endLED();                                   -> end the keyboard light
+        //}
         public void initLED()
         {
             LogitechGSDK.LogiLedInit();
@@ -135,10 +131,95 @@ namespace KeyboradLEDLibrary
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
             else if ( v == '0')
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
+            else if (v == '\\')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.BACKSLASH, r, g, b);
+            else if (v == '-')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.MINUS, r, g, b);
+            else if (v == '=')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.EQUALS, r, g, b);
+            else if (v == '[')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.OPEN_BRACKET, r, g, b);
+            else if (v == ']')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.CLOSE_BRACKET, r, g, b);
+            else if (v == '\'')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.APOSTROPHE, r, g, b);
+            else if (v == ' ')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SPACE, r, g, b);
+            else if (v == '\t')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.TAB, r, g, b);
+            else if (v == '*')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_ASTERISK, r, g, b);
+            else if (v == '+')
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_PLUS, r, g, b);
         }
         public void clearLED()
         {
             LogitechGSDK.LogiLedSetLighting(0, 0, 0);
+        }
+        public void fireDown(int r, int g, int b)
+        {
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEVEN, r, g, b);
+            Thread.Sleep(500);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SIX, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.EIGHT, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.Y, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.U, r, g, b);
+            Thread.Sleep(500);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FIVE, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.T, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.G, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.H, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SIX, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEVEN, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.EIGHT, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.T, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.Y, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.U, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.G, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.H, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.K, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.B, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.Y, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.U, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.G, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.H, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.K, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.B, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.H, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.B, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.H, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.B, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.N, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            Thread.Sleep(500);
+            clearLED();
+            clearLED();
         }
         public void shinKeyWithString(string str, int r, int g, int b)
         {
