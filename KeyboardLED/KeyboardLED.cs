@@ -46,6 +46,33 @@ namespace KeyboradLEDLibrary
         {
             LogitechGSDK.LogiLedSetLighting(r, g, b);
         }
+        public void shinKeyWithFunc(int i, int r, int g, int b)
+        {
+            if (i == 1)
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F1, r, g, b);
+            else if (i == 2 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F2, r, g, b);
+            else if (i == 3 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F3, r, g, b);
+            else if (i == 4 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F4, r, g, b);
+            else if (i == 5 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F5, r, g, b);
+            else if (i == 6 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F6, r, g, b);
+            else if (i == 7 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F7, r, g, b);
+            else if (i == 8 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F8, r, g, b);
+            else if (i == 9 )
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F9, r, g, b);
+            else if (i == 10)
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F10, r, g, b);
+            else if (i == 11)
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F11, r, g, b);
+            else if (i == 12)
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F12, r, g, b);
+        }
         public void shinKeyWithChar(int c, int r, int g, int b)
         {
             char v;
@@ -222,31 +249,29 @@ namespace KeyboradLEDLibrary
             clearLED();
             clearLED();
         }
-        public void shinKeyWithString(string str, int r, int g, int b)
+        public void go(int gr, int gg, int gb, int or, int og, int ob)
         {
-            if (str == "go")
-            {
                 // G
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FIVE, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FOUR, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.THREE, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.W, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.S, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.X, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.C, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.V, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.G, r, g, b);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FIVE, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FOUR, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.THREE, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.W, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.S, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.X, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.C, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.F, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.V, gr, gg, gb);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.G, gr, gg, gb);
                 // o
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
-            }
-            else if (str == "one")
-            {
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, or, og, ob);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, or, og, ob);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, or, og, ob);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, or, og, ob);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, or, og, ob);
+                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, or, og, ob);
+        }
+        public void one(int r, int g, int b)
+        {
                 // 1
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
@@ -255,49 +280,48 @@ namespace KeyboradLEDLibrary
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.PERIOD, r, g, b);
                 LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_ONE, r, g, b);
-            }
-            else if (str == "two")
-            {
-                // 2
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.P, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, r, g, b);
-                //LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.PERIOD, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FORWARD_SLASH, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_TWO, r, g, b);
-            }
-            else if (str == "three")
-            {
-                // 3
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.MINUS, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.OPEN_BRACKET, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEMICOLON, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FORWARD_SLASH, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_WINDOWS, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_ALT, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_THREE, r, g, b);
-            }
-            else if (str == "four")
-            {
-                // 4
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.K, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEMICOLON, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.PERIOD, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_ALT, r, g, b);
-                LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_FOUR, r, g, b);
-            }
+        }
+        public void two(int r, int g, int b)
+        {
+            // 2
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.P, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, r, g, b);
+            //LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.M, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.PERIOD, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FORWARD_SLASH, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_TWO, r, g, b);
+        }
+        public void three(int r, int g, int b)
+        {
+            // 3
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.ZERO, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.MINUS, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.OPEN_BRACKET, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEMICOLON, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.FORWARD_SLASH, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_WINDOWS, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_ALT, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.COMMA, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_THREE, r, g, b);
+        }
+        public void four(int r, int g, int b)
+        {
+            // 4
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NINE, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.I, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.J, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.K, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.L, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEMICOLON, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.O, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.PERIOD, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.RIGHT_ALT, r, g, b);
+            LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.NUM_FOUR, r, g, b);
         }
     }
 }
