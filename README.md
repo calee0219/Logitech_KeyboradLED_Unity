@@ -5,7 +5,7 @@ using0 [Logitech SDK](https://github.com/logihackdays/LGS_LED) provided by Logit
 Doing Unity Depency for Logitech RGB Light
 
 ## How to Use it
-copy [KeyboardLED/KeyboardLED.cs](KeyboardLED/KeyboardLED.cs), [KeyboardLED/LogitechGSDK.cs](KeyboardLED/LogitechGSDK.cs), and [KeyboardLED/bin/Debug/KeyboradLED.dll](KeyboardLED/bin/Debug/KeyboradLED.dll) to Unity file
+copy [KeyboardLED/KeyboardLED.cs](KeyboardLED/KeyboardLED.cs), [KeyboardLED/LogitechGSDK.cs](KeyboardLED/LogitechGSDK.cs), and [dll_file/KeyboradLED.dll](dll_file/KeyboradLED.dll) to Unity file
 
 Open the script you want to add this SDK with Vistual Studio.
 
