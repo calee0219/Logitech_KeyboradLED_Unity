@@ -7,14 +7,14 @@ namespace KeyboradLEDLibrary
 {
     public class KeyboardLED
     {
-        static void Main()
-        {
-            KeyboardLED led = new KeyboardLED();
-            led.initLED();
-            led.clearLED();
-            led.fireDown(100, 0, 0);
-            led.endLED();
-        }
+        //static void Main()
+        //{
+        //    KeyboardLED led = new KeyboardLED();
+        //    led.initLED();
+        //    led.clearLED();
+        //    led.fireDown(100, 0, 0);
+        //    led.endLED();
+        //}
         // Sample using code
         //static void Main(string[] args)
         //{
@@ -158,6 +158,7 @@ namespace KeyboradLEDLibrary
         }
         public void fireDown(int r, int g, int b)
         {
+            clearLED();
             LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SEVEN, r, g, b);
             Thread.Sleep(500);
             LogitechGSDK.LogiLedSetLightingForKeyWithKeyName(keyboardNames.SIX, r, g, b);
